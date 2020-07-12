@@ -12,6 +12,6 @@ const { html2json, json2html } = h2j
  */
 export default (htmls, minifyOptions = DEFAULT_MINIFY_OPTIONS) =>
   minify(
-    '<!doctype html>' + json2html(htmls.map(html2json).reduce(mergeTwo)),
+    '<!DOCTYPE html>' + json2html(htmls.map(html2json).reduce(mergeTwo)),
     minifyOptions
   )

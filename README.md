@@ -57,8 +57,8 @@ npx --package @hugojosefson/merge-html \
 
 ## Programmatic access
 
-You can also add the module to your project, `import` it, and use its exported functions
-programmatically.
+You can also add the module to your project, `import` it, and use its exported
+functions programmatically.
 
 ```bash
 yarn add @hugojosefson/merge-html
@@ -90,14 +90,12 @@ console.log(merge([html1, html2]))
 
 The above example would output:
 
-```html
-<!doctype html><html><head><title>Example</title><script src="legacy.js" async nomodule=""></script><script src="modern.mjs" type="module"></script></head><body><p>Hello</p><p>World</p></body></html>
-```
+    <!DOCTYPE html><html><head><title>Example</title><script src="legacy.js" async nomodule=""></script><script src="modern.mjs" type="module"></script></head><body><p>Hello</p><p>World</p></body></html>
 
 ... which when pretty-printed is:
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Example</title>
