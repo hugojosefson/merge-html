@@ -57,15 +57,15 @@ npx --package @hugojosefson/merge-html \
 
 ## Programmatic access
 
-You can also add the module to your project, `import` it, and use its exported
-functions programmatically.
+You can also add the module to your project, `import` it, and use its default
+exported function programmatically.
 
 ```bash
 yarn add @hugojosefson/merge-html
 ```
 
 ```js
-import { merge } from '@hugojosefson/merge-html'
+import merge from '@hugojosefson/merge-html'
 
 const html1 = `
 <html>
@@ -137,7 +137,3 @@ The resulting HTML document.
 #### DEFAULT_MINIFY_OPTIONS
 
 Default `minifyOptions` for `merge()`.
-
-##### collapseBooleanAttributes
-
-##### collapseWhitespace

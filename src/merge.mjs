@@ -10,6 +10,7 @@ const { html2json, json2html } = h2j
  * @param {string[]} htmls Array of HTML documents, each as a string.
  * @param {boolean|Object} minifyOptions Can be `true`, `false` or an object with options for [html-minifier-terser](https://www.npmjs.com/package/html-minifier-terser).
  * @returns {string} The resulting HTML document.
+ * @public
  */
 export default (htmls, minifyOptions = DEFAULT_MINIFY_OPTIONS) =>
   minify(

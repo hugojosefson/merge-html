@@ -12,6 +12,7 @@ export default (html, options = DEFAULT_MINIFY_OPTIONS) => {
 
 /**
  * Default `minifyOptions` for `merge()`.
+ * @public
  */
 export const DEFAULT_MINIFY_OPTIONS = {
   collapseBooleanAttributes: true,

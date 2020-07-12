@@ -1,2 +1,2 @@
-export { default as merge } from './merge-several.mjs'
+export { default } from './merge.mjs'
 export { DEFAULT_MINIFY_OPTIONS } from './fn/minify.mjs'
