@@ -34,7 +34,7 @@ Will merge all the input html files, and redirect the output to `output.html`.
 
 By default, the output HTML is minified using
 [html-minifier-terser](https://www.npmjs.com/package/html-minifier-terser) with
-[DEFAULT_MINIFY_OPTIONS](#default-minify-options).
+[DEFAULT_MINIFY_OPTIONS](#default_minify_options).
 
 You may change it by setting the `MERGE_HTML_MINIFY` environment variable to a
 boolean, or to a valid JSON object with configuration options. For example:
