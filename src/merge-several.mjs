@@ -1,6 +1,7 @@
 import h2j from 'html2json'
 import { default as minify, DEFAULT_MINIFY_OPTIONS } from './fn/minify.mjs'
 import mergeTwo from './merge-two.mjs'
+import removeDoctype from './fn/remove-doctype.mjs'
 
 const { html2json, json2html } = h2j
 
@@ -12,6 +13,7 @@ const { html2json, json2html } = h2j
  */
 export default (htmls, minifyOptions = DEFAULT_MINIFY_OPTIONS) =>
   minify(
-    '<!DOCTYPE html>' + json2html(htmls.map(html2json).reduce(mergeTwo)),
+    '<!DOCTYPE html>' +
+      json2html(htmls.map(removeDoctype).map(html2json).reduce(mergeTwo)),
     minifyOptions
   )
