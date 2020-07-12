@@ -1,4 +1,4 @@
-# Node.js example CLI app
+# @hugojosefson/merge-html
 
 [![Build Status](https://travis-ci.org/hugojosefson/merge-html.svg?branch=master)](https://travis-ci.org/hugojosefson/merge-html)
 [![npm page](https://img.shields.io/npm/v/@hugojosefson/merge-html.svg)](https://npmjs.com/package/@hugojosefson/merge-html)
@@ -8,7 +8,7 @@
 
 ## Introduction
 
-CLI for merging two or more `.html` files together.
+CLI and module for merging two or more `.html` files together.
 
 ## Prerequisite
 
@@ -23,11 +23,37 @@ nvm install stable
 ## Usage
 
 ```bash
-npx --package @hugojosefson/merge-html merge-html input1.html input2.html [...inputN.html] > output.html
+npx --package @hugojosefson/merge-html \
+  merge-html input1.html input2.html [...inputN.html] \
+  > output.html
 ```
 
-Will merge all the input html files, and redirect the output html to
-`output.html`.
+Will merge all the input html files, and redirect the output to `output.html`.
+
+### Minification
+
+By default, the output HTML is minified using
+[html-minifier-terser](https://www.npmjs.com/package/html-minifier-terser) with
+[DEFAULT_MINIFY_OPTIONS](#default-minify-options).
+
+You may change it by setting the `MERGE_HTML_MINIFY` environment variable to a
+boolean, or to a valid JSON object with configuration options. For example:
+
+```bash
+MERGE_HTML_MINIFY=false \
+npx --package @hugojosefson/merge-html \
+  merge-html input1.html input2.html > \
+  non-minified.html
+```
+
+...or...
+
+```bash
+MERGE_HTML_MINIFY='{"decodeEntities": true, "keepClosingSlash": true, "maxLineLength": 80}' \
+npx --package @hugojosefson/merge-html \
+  merge-html input1.html input2.html > \
+  special-minified.html
+```
 
 ## Programmatic access
 
@@ -40,6 +66,29 @@ programmatically.
 
 #### merge
 
+Merges two or more HTML strings together.
+
 ##### Parameters
 
-- `htmls` **...any**
+- `htmls`
+  **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**
+  Array of HTML documents, each as a string.
+- `minifyOptions`
+  **([boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+  \|
+  [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))**
+  Can be `true`, `false` or an object with options for
+  [html-minifier-terser](https://www.npmjs.com/package/html-minifier-terser).
+  (optional, default `DEFAULT_MINIFY_OPTIONS`)
+
+Returns
+**[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+The resulting HTML document.
+
+#### DEFAULT_MINIFY_OPTIONS
+
+Default `minifyOptions` for `merge()`.
+
+##### collapseBooleanAttributes
+
+##### collapseWhitespace

@@ -4,7 +4,6 @@ import fs from 'fs'
 import { merge } from './index.mjs'
 
 const { readFileSync } = fs
-const useDefaultIfTrue = value => (value === true ? undefined : value)
 
 const args = Array.from(process.argv).slice(2)
 if (args.length < 2) {
@@ -14,5 +13,5 @@ if (args.length < 2) {
 const { MERGE_HTML_MINIFY } = envConfig()
 
 const htmls = args.map(filename => readFileSync(filename, 'utf8'))
-const result = merge(htmls, useDefaultIfTrue(MERGE_HTML_MINIFY))
+const result = merge(htmls, MERGE_HTML_MINIFY)
 console.log(result)
