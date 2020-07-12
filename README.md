@@ -57,8 +57,59 @@ npx --package @hugojosefson/merge-html \
 
 ## Programmatic access
 
-You can also `import` the module, and use its exported functions
+You can also add the module to your project, `import` it, and use its exported functions
 programmatically.
+
+```bash
+yarn add @hugojosefson/merge-html
+```
+
+```js
+import { merge } from '@hugojosefson/merge-html'
+
+const html1 = `
+<html>
+  <head>
+    <title>Example</title>
+    <script src="legacy.js" async nomodule></script>
+  </head>
+  <body>
+    <p>Hello</p>`
+
+const html2 = `
+<html>
+  <head>
+    <title>Example</title>
+    <script src="modern.mjs" type=module></script>
+  </head>
+  <body>
+    <p>World</p>`
+
+console.log(merge([html1, html2]))
+```
+
+The above example would output:
+
+```html
+<!doctype html><html><head><title>Example</title><script src="legacy.js" async nomodule=""></script><script src="modern.mjs" type="module"></script></head><body><p>Hello</p><p>World</p></body></html>
+```
+
+... which when pretty-printed is:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <title>Example</title>
+    <script src="legacy.js" async nomodule=""></script>
+    <script src="modern.mjs" type="module"></script>
+  </head>
+  <body>
+    <p>Hello</p>
+    <p>World</p>
+  </body>
+</html>
+```
 
 ### API
 
