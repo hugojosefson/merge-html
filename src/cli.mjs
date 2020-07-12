@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import envConfig from '@hugojosefson/env-config'
 import fs from 'fs'
-import { merge } from './index.mjs'
+import merge from './index.mjs'
 
 const { readFileSync } = fs
 
