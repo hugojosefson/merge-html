@@ -1,14 +1,18 @@
 #!/usr/bin/env node
+import envConfig from '@hugojosefson/env-config'
+import fs from 'fs'
+import { merge } from './index.mjs'
 
-import yargs from 'yargs'
-import termSize from 'term-size'
-import { generateGreeting, identity } from './index.mjs'
-import greet from './yargs-commands/greet.mjs'
+const { readFileSync } = fs
+const useDefaultIfTrue = value => (value === true ? undefined : value)
 
-yargs
-  .strict()
-  .command(greet({ generateGreeting, identity }))
-  .demandCommand(1)
-  .help()
-  .wrap(termSize().columns)
-  .parse()
+const args = Array.from(process.argv).slice(2)
+if (args.length < 2) {
+  throw new Error('Please provide at least two html files as arguments.')
+}
+
+const { MERGE_HTML_MINIFY } = envConfig()
+
+const htmls = args.map(filename => readFileSync(filename, 'utf8'))
+const result = merge(htmls, useDefaultIfTrue(MERGE_HTML_MINIFY))
+console.log(result)

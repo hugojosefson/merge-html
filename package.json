@@ -1,15 +1,13 @@
 {
-  "name": "@hugojosefson/example-cli",
-  "version": "4.0.1",
-  "description": "Example Node.js CLI app.",
-  "main": "./cjs/index.js",
-  "module": "./src/index.mjs",
+  "name": "@hugojosefson/merge-html",
+  "version": "0.0.1",
+  "description": "CLI for merging 2+ .html files together.",
+  "main": "./src/index.mjs",
   "bin": {
-    "example-cli": "src/cli.mjs"
+    "merge-html": "src/cli.mjs"
   },
   "files": [
     "src",
-    "cjs",
     "package.json",
     "yarn.lock",
     "README.md",
@@ -17,8 +15,7 @@
   ],
   "scripts": {
     "start": "src/cli.mjs",
-    "prepare": "npm-run-all build-cjs documentation lint-readme",
-    "build-cjs": "rollup src/index.mjs --file cjs/index.js --format cjs --external fs --exports named --outro 'if(exports.default){Object.assign(exports.default,exports);module.exports=exports.default}'",
+    "prepare": "npm-run-all documentation lint-readme",
     "lint": "prettier --write 'src/**/*.{js,mjs,md}' './*.{js,mjs,md}'",
     "lint-readme": "prettier --write README.md",
     "documentation": "documentation readme --markdown-toc=false --document-exported --quiet --resolve=node --shallow --format=md --section=API src/index.mjs",
@@ -27,16 +24,14 @@
     "npm-audit": "npm install --package-lock-only && npm audit; rm package-lock.json"
   },
   "author": "Hugo Josefson <hugo@josefson.org> (https://www.hugojosefson.com/)",
-  "repository": "hugojosefson/nodejs-example-cli",
+  "repository": "hugojosefson/merge-html",
   "license": "MIT",
   "keywords": [
-    "node",
-    "nodejs",
+    "merge",
+    "html",
     "cli",
-    "bin",
-    "esmodule",
-    "example",
-    "template"
+    "file",
+    "files"
   ],
   "mocha": {
     "spec": "test/*-test.mjs"
@@ -69,8 +64,9 @@
     "rollup": "^2.13.1"
   },
   "dependencies": {
-    "term-size": "^2.2.0",
-    "yargs": "^15.3.1"
+    "@hugojosefson/env-config": "^1.3.0",
+    "html-minifier-terser": "^5.1.1",
+    "html2json": "^1.0.2"
   },
   "engines": {
     "node": ">=13.2.0"
