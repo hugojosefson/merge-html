@@ -10,7 +10,7 @@ if (args.length < 2) {
   throw new Error('Please provide at least two html files as arguments.')
 }
 
-const { MERGE_HTML_MINIFY } = envConfig()
+const { MERGE_HTML_MINIFY } = envConfig({ keys: ['MERGE_HTML_MINIFY'] })
 
 const htmls = args.map(filename => readFileSync(filename, 'utf8'))
 const result = merge(htmls, MERGE_HTML_MINIFY)
