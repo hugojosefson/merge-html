@@ -1,7 +1,7 @@
 {
   "name": "@hugojosefson/merge-html",
   "version": "1.0.0",
-  "description": "CLI for merging 2+ .html files together.",
+  "description": "CLI and module for merging 2+ .html files together.",
   "type": "module",
   "main": "./src/index.mjs",
   "bin": {
@@ -31,6 +31,8 @@
     "merge",
     "html",
     "cli",
+    "module",
+    "esmodule",
     "file",
     "files"
   ],
