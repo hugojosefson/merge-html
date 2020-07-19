@@ -17,7 +17,7 @@
   "scripts": {
     "start": "src/cli.mjs",
     "prepare": "npm-run-all documentation lint-readme",
-    "lint": "prettier --write 'src/**/*.{js,mjs,md}' './*.{js,mjs,md}'",
+    "lint": "prettier --write '{,{src,test}{,/**}/}*.{js,mjs,md}'",
     "lint-readme": "prettier --write README.md",
     "documentation": "documentation readme --markdown-toc=false --access=public --github --quiet --format=md --section=API src/index.mjs",
     "test": "npm-run-all lint documentation lint-readme mocha",
@@ -37,7 +37,7 @@
     "files"
   ],
   "mocha": {
-    "spec": "test/*-test.mjs"
+    "spec": "test/*test.mjs"
   },
   "husky": {
     "hooks": {
