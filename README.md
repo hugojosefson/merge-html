@@ -115,7 +115,7 @@ The above example would output:
 
 #### merge
 
-[src/merge.mjs:15-20](https://github.com/hugojosefson/merge-html/blob/ffc9306b44db148600b5b1be2b7d98c1c0ca5f98/src/merge.mjs#L15-L20 'Source code on GitHub')
+[src/merge.mjs:15-20](https://github.com/hugojosefson/merge-html/blob/ed7f703815e3ea0706a6da8e351882740c216325/src/merge.mjs#L15-L20 'Source code on GitHub')
 
 Merges two or more HTML strings together.
 
@@ -138,6 +138,6 @@ The resulting HTML document.
 
 #### DEFAULT_MINIFY_OPTIONS
 
-[src/fn/minify.mjs:17-20](https://github.com/hugojosefson/merge-html/blob/ffc9306b44db148600b5b1be2b7d98c1c0ca5f98/src/fn/minify.mjs#L17-L20 'Source code on GitHub')
+[src/fn/minify.mjs:17-20](https://github.com/hugojosefson/merge-html/blob/ed7f703815e3ea0706a6da8e351882740c216325/src/fn/minify.mjs#L17-L20 'Source code on GitHub')
 
 Default `minifyOptions` for `merge()`.
