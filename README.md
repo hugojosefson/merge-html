@@ -12,7 +12,7 @@ CLI and module for merging two or more `.html` files together.
 
 ## Prerequisite
 
-Node.js, `v13.2.0` or higher, ideally at least `v14.0.0`.
+Node.js, `v13.7.0` or higher, ideally at least `v14.0.0`.
 
 Recommended to install latest via [nvm](https://github.com/nvm-sh/nvm#readme):
 
